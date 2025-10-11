@@ -26,7 +26,8 @@ Prerequisites
 Docker
 Docker Compose
 Running with Docker Compose
-```docker-compose up --build
+```
+docker-compose up --build
 ```
 
 The backend will be available at http://localhost:8080
