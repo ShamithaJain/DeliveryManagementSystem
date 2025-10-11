@@ -1,0 +1,13 @@
+# Ignore environment files and sensitive data
+.env
+*.env
+# Ignore dependency directories
+vendor/
+# Ignore build outputs
+*.exe
+*.out
+*.log
+# Ignore IDE/editor files
+.vscode/
+.idea/
+.DS_Store

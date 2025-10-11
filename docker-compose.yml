@@ -1,0 +1,36 @@
+
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: dms_postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: MyDb!5432
+      POSTGRES_DB: dms
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  redis:
+    image: redis:7-alpine
+    container_name: dms_redis
+    ports:
+      - "6379:6379"
+
+  backend:
+    build: .
+    container_name: dms_backend
+    ports:
+      - "8080:8080"
+    environment:
+      PG_DSN: "postgres://postgres:MyDb!5432@postgres:5432/dms?sslmode=disable"
+      REDIS_ADDR: "redis:6379"
+      JWT_SECRET: "supersecretkey"
+    depends_on:
+      - postgres
+      - redis
+
+volumes:
+  postgres_data:
