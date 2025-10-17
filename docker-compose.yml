@@ -25,7 +25,7 @@ services:
     ports:
       - "8080:8080"
     environment:
-      PG_DSN: "postgres://postgres:MyDb!5432@postgres:5432/dms?sslmode=disable"
+      PG_DSN: "postgres://postgres:your_password@postgres:5432/dms?sslmode=disable"
       REDIS_ADDR: "redis:6379"
       JWT_SECRET: "supersecretkey"
     depends_on:
