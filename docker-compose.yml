@@ -6,7 +6,7 @@ services:
     container_name: dms_postgres
     environment:
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: MyDb!5000
+      POSTGRES_PASSWORD: #your_password
       POSTGRES_DB: dms
     ports:
       - "5432:5432"
